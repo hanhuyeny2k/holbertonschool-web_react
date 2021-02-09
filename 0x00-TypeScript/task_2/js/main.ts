@@ -56,3 +56,12 @@ function executeWork(employee: Director | Teacher): string {
 
 console.log(executeWork(createEmployee('Sam', 'Silva', 200)));
 console.log(executeWork(createEmployee('James', 'Dunkin', 1000)));
+
+//string literal named Subjects variable have the value Math or History
+type Subjects = 'Math' | 'History';
+function teachClass(todayClass: Subjects): string{
+  return todayClass === 'Math' ? 'Teaching Math' : 'Teaching History';
+}
+
+console.log(teachClass('Math'));
+console.log(teachClass('History'));
