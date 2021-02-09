@@ -44,3 +44,15 @@ function createEmployee(firstName: string, lastName: string, salary: number | st
 console.log(createEmployee('Sam', 'Silva', 200));
 console.log(createEmployee('James', 'Dunkin', 1000));
 console.log(createEmployee('Gary', 'Zale', '$500'));
+
+//create function isDirector and executeWork
+function isDirector(employee: Director | Teacher): employee is Director {
+  return (employee instanceof Director) ? true : false;
+}
+
+function executeWork(employee: Director | Teacher): string {
+  return isDirector(employee) ? employee.workDirectorTasks() : employee.workTeacherTasks();
+}
+
+console.log(executeWork(createEmployee('Sam', 'Silva', 200)));
+console.log(executeWork(createEmployee('James', 'Dunkin', 1000)));
