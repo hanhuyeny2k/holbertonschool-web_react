@@ -1,5 +1,5 @@
 {
-  "name": "0x01-webpack",
+  "name": "task_0",
   "version": "1.0.0",
   "description": "learning webpack",
   "main": "index.js",
@@ -14,6 +14,7 @@
     "test": "echo \"Error: no test specified\" && exit 1",
     "dev": "webpack --mode development"
   },
+  "keywords": [],
   "author": "",
   "license": "ISC"
 }
