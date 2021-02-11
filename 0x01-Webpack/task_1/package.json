@@ -4,7 +4,7 @@
   "description": "learning webpack",
   "main": "webpack.config.js",
   "dependencies": {
-    "jquery": "^3.5.1"
+    "jquery": "^3.5.1",
     "lodash": "^4.17.20"
   },
   "devDependencies": {
