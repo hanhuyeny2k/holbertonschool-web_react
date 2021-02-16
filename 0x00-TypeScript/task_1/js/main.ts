@@ -35,12 +35,19 @@ const director1: Directors = {
 };
 console.log(director1);
 
+//Printing teachers
+interface printTeacherFunction {
+  (firstName: string, lastName: string): string;
+}
+
 // returns the first letter of the firstName and the full lastName
 export const printTeacher: printTeacherFunction = (firstName: string, lastName: string): string = {
   return `${firstName[0]}. ${lastName}`;
 }
 
 console.log(printTeacher('John', 'Doe'));
+
+//Task 4
 interface StudentConstructor {
   new(firstName: string, lastName: string): StudentClassInterface;
 }
