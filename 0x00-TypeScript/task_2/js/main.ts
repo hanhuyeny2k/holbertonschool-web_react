@@ -12,7 +12,7 @@ interface TeacherInterface {
   workTeacherTasks(): string;
 }
 
-class Director implements DirectorsInterface {
+export class Director implements DirectorsInterface {
   workFromHome(): string {
     return 'Working from home';
   }
@@ -24,7 +24,7 @@ class Director implements DirectorsInterface {
   }
 }
 
-class Teacher implements TeacherInterface {
+export class Teacher implements TeacherInterface {
   workFromHome(): string {
     return 'Cannot work from home';
   }
@@ -36,32 +36,32 @@ class Teacher implements TeacherInterface {
   }
 }
 
-function createEmployee(firstName: string, lastName: string, salary: number | string): Director | Teacher {
-  if (salary as number && salary < 500) return new Teacher();
-  else return new Director(); 
+export function createEmployee(salary: number | string): DirectorInterface | TeacherInterface {
+  if (typeof salary === 'number' && salary < 500) return new Teacher();
+  return new Director(); 
 }
 
-console.log(createEmployee('Sam', 'Silva', 200));
-console.log(createEmployee('James', 'Dunkin', 1000));
-console.log(createEmployee('Gary', 'Zale', '$500'));
+//console.log(createEmployee('Sam', 'Silva', 200));
+//console.log(createEmployee('James', 'Dunkin', 1000));
+//console.log(createEmployee('Gary', 'Zale', '$500'));
 
 //create function isDirector and executeWork
-function isDirector(employee: Director | Teacher): employee is Director {
-  return (employee instanceof Director) ? true : false;
+export function isDirector(employee: DirectorInterface | TeacherInterface): employee is Director {
+  return employee.workFromHome() === 'Working from home';
 }
 
-function executeWork(employee: Director | Teacher): string {
+export function executeWork(employee: DirectorInterface | TeacherInterface): string {
   return isDirector(employee) ? employee.workDirectorTasks() : employee.workTeacherTasks();
 }
 
-console.log(executeWork(createEmployee('Sam', 'Silva', 200)));
-console.log(executeWork(createEmployee('James', 'Dunkin', 1000)));
+//console.log(executeWork(createEmployee('Sam', 'Silva', 200)));
+//console.log(executeWork(createEmployee('James', 'Dunkin', 1000)));
 
 //string literal named Subjects variable have the value Math or History
 type Subjects = 'Math' | 'History';
-function teachClass(todayClass: Subjects): string{
+export function teachClass(todayClass: Subjects): string {
   return todayClass === 'Math' ? 'Teaching Math' : 'Teaching History';
 }
 
-console.log(teachClass('Math'));
-console.log(teachClass('History'));
+//console.log(teachClass('Math'));
+//console.log(teachClass('History'));
