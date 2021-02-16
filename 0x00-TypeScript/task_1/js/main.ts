@@ -9,10 +9,6 @@ interface Teacher {
   [propName: string]: any;
 }
 
-// Directors interface
-interface Directors extends Teacher {
-  numberOfReports: number;
-}
 
 // Creating a teacher and a director
 const teacher3: Teacher = {
@@ -24,6 +20,12 @@ const teacher3: Teacher = {
 };
 console.log(teacher3);
 
+// Directors interface
+interface Directors extends Teacher {
+  numberOfReports: number;
+}
+
+
 const director1: Directors = {
   firstName: 'John',
   lastName: 'Doe',
@@ -34,46 +36,31 @@ const director1: Directors = {
 console.log(director1);
 
 // returns the first letter of the firstName and the full lastName
-function printTeacher(firstName: string, lastName: string): string {
+export const printTeacher: printTeacherFunction = (firstName: string, lastName: string): string = {
   return `${firstName[0]}. ${lastName}`;
 }
 
 console.log(printTeacher('John', 'Doe'));
-
-// class description interface
-interface classInterface {
+interface StudentConstructor {
+  new(firstName: string, lastName: string): StudentClassInterface;
+}
+interface StudentClassInterface {
   firstName: string;
   lastName: string;
   workOnHomework(): string;
   displayName(): string;
 }
-
-// constructor description interface
-interface classConstructor {
-  new (firstName: string, lastName: string): classInterface;
-}
-
-// Creating class and constructor through interfaces 
-class StudentClass implements classInterface {
+export const StudentClass: StudentConstructor = class StudentClass implements StudentClassInterface {
   firstName: string;
   lastName: string;
-
   constructor(firstName: string, lastName: string) {
     this.firstName = firstName;
     this.lastName = lastName;
   }
-
   workOnHomework(): string {
-    return 'Currently working';
+    return "Currently working";
   }
-
   displayName(): string {
     return this.firstName;
   }
 }
-
-// creating instance of StudentClass
-const studentClass: StudentClass = new StudentClass('bobby', 'lee');
-console.log(studentClass.displayName());
-console.log(studentClass.workOnHomework());
-
