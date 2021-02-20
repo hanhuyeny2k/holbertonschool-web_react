@@ -59,7 +59,7 @@ export function executeWork(employee: DirectorInterface | TeacherInterface): str
 
 //string literal named Subjects variable have the value Math or History
 type Subjects = 'Math' | 'History';
-export function teachClass(todayClass: Subjects): string {
+export function teachClass(todayClass:Subjects): string {
   return todayClass === 'Math' ? 'Teaching Math' : 'Teaching History';
 }
 
