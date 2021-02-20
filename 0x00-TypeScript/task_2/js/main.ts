@@ -1,6 +1,6 @@
 //create director and teacher interface and create function createEmployee
 
-interface DirectorsInterface {
+interface DirectorInterface {
   workFromHome(): string;
   getCoffeeBreak(): string;
   workDirectorTasks(): string; 
@@ -12,7 +12,7 @@ interface TeacherInterface {
   workTeacherTasks(): string;
 }
 
-export class Director implements DirectorsInterface {
+export class Director implements DirectorInterface {
   workFromHome(): string {
     return 'Working from home';
   }
