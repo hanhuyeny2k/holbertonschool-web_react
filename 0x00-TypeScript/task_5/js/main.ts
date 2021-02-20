@@ -1,5 +1,5 @@
 interface MajorCredits {
-  credits: number;
+  credit: number;
   _majorBrand: 'major';
 }
 
