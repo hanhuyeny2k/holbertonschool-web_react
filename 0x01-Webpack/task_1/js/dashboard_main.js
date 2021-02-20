@@ -16,4 +16,4 @@ function updateCounter() {
   };
 }
 
-$('button').on('click', _.debounce(updateCounter, 250);
+$('button').on('click', _.debounce(updateCounter, 500);
