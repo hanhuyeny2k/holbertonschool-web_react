@@ -14,6 +14,10 @@ module.exports = {
       template: './dist/index.html'
     })
   ],
+  devServer: {
+    host: '0.0.0.0',
+    port: 8080
+  },
   module: {
     rules: [
       {
@@ -35,4 +39,4 @@ module.exports = {
     ]
   },
   devtool: 'inline-source-map'
-};
+}
