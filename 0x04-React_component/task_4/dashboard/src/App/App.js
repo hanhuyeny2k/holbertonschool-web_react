@@ -78,6 +78,7 @@ class App extends Component {
       </div>
     </Fragment>
   );
+ }
 }
 
 App.propTypes = {
