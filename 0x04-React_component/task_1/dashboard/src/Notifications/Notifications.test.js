@@ -6,7 +6,7 @@ import Notifications from './Notifications';
 import NotificationItem from './NotificationItem';
 
 describe('<Notifications />', () => {
-  it('renders without crashing', () => {
+  test('renders without crashing', () => {
     const wrapper = shallow(<Notifications />);
     expect(wrapper.exists());
   });
@@ -16,18 +16,6 @@ describe('displayDrawer is true', () => {
       const wrapper = shallow(<Notifications displayDrawer={true} />);
   
       expect(wrapper.find('img')).to.have.lengthOf(1);
-    });
-    test('renders a list with three items', () => {
-      const wrapper = shallow(<Notifications displayDrawer={true} />);
-      const listItems = wrapper.find(NotificationItem);
-
-      expect(listItems).to.have.lengthOf(3);
-    });
-    test('renders description text', () => {
-      const wrapper = shallow(<Notifications displayDrawer={true} />);
-      const text = wrapper.find('p');
-
-      expect(wrapper.find('p').first().text()).to.equal('Here is the list of notifications');
     });
     test('menu item is displayed', () => {
       const wrapper = shallow(<Notifications displayDrawer={true} />);
@@ -58,5 +46,41 @@ describe('displayDrawer is true', () => {
 
       expect(notifs).to.have.lengthOf(0);
     });
+  });
+
+describe('listNotifications is empty', () => {
+    test('renders correctly if empty array is passed', () => {
+      const wrapper = shallow(<Notifications />);
+      const notifs = wrapper.find(NotificationItem);
+
+      expect(notifs).to.have.lengthOf(0);
+    });
+
+    test('renders correctly if listNotifications prop not specified', () => {
+      const wrapper = shallow(<Notifications />);
+      const notifs = wrapper.find(NotificationItem);
+
+      expect(notifs).to.have.lengthOf(0);
+    });
+  });
+
+  describe('listNotifications is not empty', () => {
+    test('renders a list with two items when passed two items', () => {
+      const nots = [
+        {id: 1, type: "default", value: "x"},
+        {id: 2, type: "default", value: "y"}
+      ];
+      const wrapper = shallow(<Notifications displayDrawer={true} listNotifications={nots} />);
+      expect(wrapper.find("ul")).to.have.lengthOf(1);
+      expect(wrapper.find(NotificationItem)).to.have.lengthOf(2);
+    });
+  });
+
+  describe('message displays properly', () => {
+    const wrapper = shallow(<Notifications displayDrawer={true} />);
+    const noNewNotifs = wrapper.find('.Notifications p');
+
+    expect(noNewNotifs).to.have.lengthOf(1);
+    expect(noNewNotifs.text()).to.equal('No new notifications for now');
   });
 });
