@@ -1,7 +1,7 @@
 import React, { PureComponent } from 'react';
 import PropTypes from 'prop-types';
 
-class NotificationItem extends PureCoponent {
+class NotificationItem extends PureComponent {
   render() {
     const { id, type, html, value, markAsRead } = this.props;
   return html === undefined? (
