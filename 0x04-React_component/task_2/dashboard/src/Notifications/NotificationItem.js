@@ -1,6 +1,7 @@
 import React from 'react';
+import PropTypes from 'prop-types';
 
-const NotificationItem = ({ type, html, value }) => {
+const NotificationItem = ({ type, html, value, markAsRead }) => {
   if (html === undefined)
     return (
       <li data-notification-type={type} onClick={() => markAsRead(id) }>
