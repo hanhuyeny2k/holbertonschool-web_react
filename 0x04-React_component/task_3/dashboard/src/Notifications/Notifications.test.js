@@ -17,18 +17,6 @@ describe('displayDrawer is true', () => {
   
       expect(wrapper.find('img')).to.have.lengthOf(1);
     });
-    test('renders a list with three items', () => {
-      const wrapper = shallow(<Notifications displayDrawer={true} />);
-      const listItems = wrapper.find(NotificationItem);
-
-      expect(listItems).to.have.lengthOf(3);
-    });
-    test('renders description text', () => {
-      const wrapper = shallow(<Notifications displayDrawer={true} />);
-      const text = wrapper.find('p');
-
-      expect(wrapper.find('p').first().text()).to.equal('Here is the list of notifications');
-    });
     test('menu item is displayed', () => {
       const wrapper = shallow(<Notifications displayDrawer={true} />);
       const menuItem = wrapper.find('.menuItem');
@@ -60,7 +48,7 @@ describe('displayDrawer is true', () => {
     });
   });
 
-  describe('listNotifications is empty', () => {
+describe('listNotifications is empty', () => {
     test('renders correctly if empty array is passed', () => {
       const wrapper = shallow(<Notifications />);
       const notifs = wrapper.find(NotificationItem);
@@ -94,4 +82,5 @@ describe('displayDrawer is true', () => {
 
     expect(noNewNotifs).to.have.lengthOf(1);
     expect(noNewNotifs.text()).to.equal('No new notifications for now');
-  }); 
+  });
+});

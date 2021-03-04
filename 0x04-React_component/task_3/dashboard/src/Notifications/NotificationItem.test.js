@@ -18,9 +18,8 @@ describe('NotificationItem', () => {
 
   test('renders with correct inner html', () => {
     const wrapper = shallow(
-      <NotificationItem type='urgent' html={{__html: '<u>test</u>'}} />
+      <NotificationItem type='default' html={{__html: '<u>test</u>'}} />
     );
-
     expect(wrapper.html()).equal('<li data-notification-type="default"><u>test</u></li>');
   });
 });
