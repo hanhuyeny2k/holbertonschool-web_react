@@ -3,9 +3,10 @@ import { expect } from 'chai';
 import { shallow } from 'enzyme';
 import NotificationItem from './NotificationItem';
 
-describe('NotificationItem', () => {
+describe('<NotificationItem />', () => {
   test('renders without crashing', () => {
     const wrapper = shallow(<NotificationItem />);
+    
     expect(wrapper.exists());
   });
   test('renders with correct type and value', () => {
