@@ -1,6 +1,7 @@
 import React from 'react';
 import { shallow } from 'enzyme';
 import { expect } from 'chai';
+import { StyleSheetTestUtils } from 'aphrodite';
 
 import App from './App';
 import Notifications from '../Notifications/Notifications';
@@ -11,6 +12,14 @@ import CourseList from '../CourseList/CourseList';
 
 
 describe('App', () => {
+  beforeEach(() => {
+    StyleSheetTestUtils.suppressStyleInjection();
+  });
+
+  afterEach(() => {
+    StyleSheetTestUtils.clearBufferAndResumeStyleInjection();
+  });
+
     test('renders without crashing', () => {
       const wrapper = shallow(<App />);
       expect(wrapper.exists());
@@ -58,7 +67,7 @@ describe('App', () => {
     expect(login).to.have.lengthOf(0);
     expect(courseList).to.have.lengthOf(1);
   }); 
-});
+  
   test('logOut alerts with correct string', () => {
     const myLogOut = jest.fn(() => undefined);
     const myAlert = jest.spyOn(global, 'alert');
@@ -69,4 +78,3 @@ describe('App', () => {
     expect(myLogOut);
     jest.restoreAllMocks();
   });
-});
