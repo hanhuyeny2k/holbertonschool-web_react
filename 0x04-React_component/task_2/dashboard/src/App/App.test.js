@@ -69,4 +69,3 @@ describe('App', () => {
     expect(myLogOut);
     jest.restoreAllMocks();
   });
-});
