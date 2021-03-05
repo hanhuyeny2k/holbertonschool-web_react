@@ -1,9 +1,13 @@
 import React from 'react';
 import { shallow } from 'enzyme';
+import { StyleSheetTestUtils } from 'aphrodite';
 
 import CourseList from './CourseList';
 import CourseListRow from './CourseListRow';
 
+beforeEach(() => {
+  StyleSheetTestUtils.suppressStyleInjection();
+});
 describe('CourseList', () => {
   test('renders without crashing', () => {
     const wrapper = shallow(<CourseList />);
@@ -61,4 +65,7 @@ describe('listCourses is empty', () => {
       expect(rows.at(3).props()).toHaveProperty('textSecondCell', 40);
     });
   });
+});
+afterEach(() => {
+  StyleSheetTestUtils.clearBufferAndResumeStyleInjection();
 });

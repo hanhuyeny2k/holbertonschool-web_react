@@ -16,9 +16,6 @@ describe('App', () => {
     StyleSheetTestUtils.suppressStyleInjection();
   });
 
-  afterEach(() => {
-    StyleSheetTestUtils.clearBufferAndResumeStyleInjection();
-  });
 
     test('renders without crashing', () => {
       const wrapper = shallow(<App />);
@@ -78,3 +75,7 @@ describe('App', () => {
     expect(myLogOut);
     jest.restoreAllMocks();
   });
+  afterEach(() => {
+    StyleSheetTestUtils.clearBufferAndResumeStyleInjection();
+  });
+});

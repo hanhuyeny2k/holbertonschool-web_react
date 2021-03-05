@@ -1,8 +1,14 @@
 import React from 'react';
 import { shallow } from 'enzyme';
 import { expect } from 'chai';
+import { StyleSheet, StyleSheetTestUtils } from 'aphrodite';
+
 
 import Header from './Header';
+
+beforeEach(() => {
+  StyleSheetTestUtils.suppressStyleInjection();
+});
 
 describe('Header', () => {
   test('renders without crashing', () => {
@@ -20,4 +26,7 @@ describe('Header', () => {
     expect(image.exists());
     expect(h1.exists());
   });
+});
+afterEach(() => {
+  StyleSheetTestUtils.clearBufferAndResumeStyleInjection();
 });

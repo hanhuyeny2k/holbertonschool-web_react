@@ -11,10 +11,12 @@
   },
   "license": "ISC",
   "dependencies": {
+    "aphrodite": "^2.4.0",
     "chai": "^4.2.0",
     "prop-types": "^15.7.2",
     "react": "^16.13.1",
-    "react-dom": "^16.13.1"
+    "react-dom": "^16.13.1",
+    "sinon": "^9.2.4"
   },
   "devDependencies": {
     "@babel/core": "^7.11.1",
@@ -34,6 +36,7 @@
     "image-webpack-loader": "^6.0.0",
     "jest": "^26.4.0",
     "react-test-renderer": "^16.13.1",
+    "sinon-chai": "^3.5.0",
     "style-loader": "^1.2.1",
     "webpack": "^4.44.1",
     "webpack-cli": "^3.3.12",

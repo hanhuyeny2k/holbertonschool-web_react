@@ -1,9 +1,15 @@
 import React from 'react';
 import { shallow, mount } from 'enzyme';
 import { expect } from 'chai';
+import { StyleSheetTestUtils } from 'aphrodite';
+
 
 import BodySection from './BodySection';
 import BodySectionWithMarginBottom from './BodySectionWithMarginBottom';
+
+beforeEach(() => {
+  StyleSheetTestUtils.suppressStyleInjection();
+});
 
 describe('BodySectionWithMarginBottom', () => {
     test('should properly render children', () => {
@@ -30,4 +36,8 @@ describe('BodySectionWithMarginBottom', () => {
     
         expect(div.exists()).to.equal(true);
       });
+});
+
+afterEach(() => {
+  StyleSheetTestUtils.clearBufferAndResumeStyleInjection();
 });

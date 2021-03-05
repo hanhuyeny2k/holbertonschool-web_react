@@ -1,25 +1,26 @@
 import React, { Component } from 'react';
 
-function WithLogging(Comp) {
-
-    return class extends Component {
+class WithLogging extends Component {
         constructor(props) {
             super(props);
-            this.displayName = `WithLogging(${Comp.displayName || 'Component'})`;
+            // this.displayName = `WithLogging(${props.children.type.name || 'Component'})`;
         }
 
         componentDidMount() {
-            console.log(`Component ${Comp.displayName} is mounted`);
+            let compName = this.props.children[1].type.name || 'Component';
+            console.log(`Component ${compName} is mounted`);
         }
 
         componentWillUnmount() {
-            console.log(`Component ${Comp.displayName} is going to unmount`);
+            let compName = this.props.children[1].type.name || 'Component';
+            console.log(`Component ${compName} is going to unmount`);
         }
 
         render() {
-            return <Comp {...this.props} />
+            console.log(this.props);
+            return this.props.children
         }
     }
-}
+
 
 export default WithLogging;
