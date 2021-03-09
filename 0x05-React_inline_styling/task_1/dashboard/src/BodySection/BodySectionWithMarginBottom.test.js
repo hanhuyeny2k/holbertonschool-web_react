@@ -1,11 +1,19 @@
 import React from 'react';
 import { shallow, mount } from 'enzyme';
 import { expect } from 'chai';
+import { StyleSheetTestUtils } from 'aphrodite';
 
 import BodySection from './BodySection';
 import BodySectionWithMarginBottom from './BodySectionWithMarginBottom';
 
 describe('BodySectionWithMarginBottom', () => {
+  beforeEach(() => {
+    StyleSheetTestUtils.suppressStyleInjection();
+  });
+
+  afterEach(() => {
+    StyleSheetTestUtils.clearBufferAndResumeStyleInjection();
+  });
     test('should properly render children', () => {
       const wrapper = mount(
         <BodySectionWithMarginBottom title='Title'>
@@ -26,8 +34,7 @@ describe('BodySectionWithMarginBottom', () => {
     });
     test('should have correct style applied', () => {
         const wrapper = mount(<BodySectionWithMarginBottom />);
-        const div = wrapper.find('.bodySectionWithMargin');
-    
-        expect(div.exists()).to.equal(true);
-      });
+        const div = wrapper.find('div');
+        expect(div.at(0).debug().includes('className="margin_')).to.equal(true);
+    });
 });

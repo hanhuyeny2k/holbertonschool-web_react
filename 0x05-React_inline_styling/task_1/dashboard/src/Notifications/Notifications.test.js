@@ -2,10 +2,18 @@ import React from 'react';
 import { expect } from 'chai';
 import { shallow } from 'enzyme';
 import Notifications from './Notifications';
+import { StyleSheetTestUtils } from 'aphrodite';
 
 import NotificationItem from './NotificationItem';
 
 describe('<Notifications />', () => {
+  beforeEach(() => {
+    StyleSheetTestUtils.suppressStyleInjection();
+  });
+
+  afterEach(() => {
+    StyleSheetTestUtils.clearBufferAndResumeStyleInjection();
+  });
   test('renders without crashing', () => {
     const wrapper = shallow(<Notifications />);
     expect(wrapper.exists());
