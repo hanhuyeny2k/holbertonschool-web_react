@@ -22,7 +22,7 @@ describe('App', () => {
     test('renders without crashing', () => {
       const wrapper = shallow(<App />);
       expect(wrapper.exists());
-});
+    });
   test('renders Notifications component', () => {
     const wrapper = shallow(<App />);
     const notifs = wrapper.find(Notifications);
@@ -66,7 +66,6 @@ describe('App', () => {
     expect(login).to.have.lengthOf(0);
     expect(courseList).to.have.lengthOf(1);
   }); 
-});
   test('logOut alerts with correct string', () => {
     const myLogOut = jest.fn(() => undefined);
     const myAlert = jest.spyOn(global, 'alert');
