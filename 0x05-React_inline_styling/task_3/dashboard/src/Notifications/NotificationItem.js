@@ -5,12 +5,12 @@ import { StyleSheet, css } from 'aphrodite';
 class NotificationItem extends PureComponent {
   render() {
     const { id, type, html, value, markAsRead } = this.props;
-  return html === undefined? (
+    return html === undefined? (
       <li data-notification-type={type} onClick={() => markAsRead(id) } className={css(styles[type])}>
       {value}
       </li>
     ) : (
-      <li data-notification-type={type} dangerouslySetInnerHTML={html} className={css(styles[type]), styles.small}></li>
+      <li data-notification-type={type} dangerouslySetInnerHTML={html} className={css(styles[type], styles.small)} />
     );
   }
 }
@@ -25,7 +25,7 @@ NotificationItem.propTypes = {
 
 NotificationItem.defaultProps = {
   type: 'default',
-  value: '',
+  // value: '',
   markAsRead: () => {}
 };
 

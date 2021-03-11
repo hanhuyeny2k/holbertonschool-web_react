@@ -10,7 +10,7 @@ class NotificationItem extends PureComponent {
       {value}
       </li>
     ) : (
-      <li data-notification-type={type} dangerouslySetInnerHTML={html} className={css(styles[type]), styles.small}></li>
+      <li data-notification-type={type} dangerouslySetInnerHTML={html} className={css(styles[type], styles.small)} />
     );
   }
 }

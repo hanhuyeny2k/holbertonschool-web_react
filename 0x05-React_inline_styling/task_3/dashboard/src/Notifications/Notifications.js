@@ -42,7 +42,7 @@ class Notification extends Component {
                   type={type}
                   value={value}
                   html={html}
-		  markAsRead={this.markAsRead}
+		              markAsRead={this.markAsRead}
                 />
               ))}
             </ul>
