@@ -43,13 +43,15 @@ const styles = StyleSheet.create({
     }
   },
   form: {
-    display: 'flex',
-    flexWrap: 'wrap',
-    alignContent: 'flex-start'
+    // display: 'flex',
+    // flexWrap: 'wrap',
+    // alignContent: 'flex-start'
   },
   'input-group': {
+    display: "inline",
     '@media (max-width: 900px)': {
-      margin: '0.25rem 0'
+      margin: '0.25rem 0',
+      display: 'block'
     }
   }
 });
