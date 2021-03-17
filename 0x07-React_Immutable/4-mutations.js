@@ -1,7 +1,5 @@
 import immutable from 'immutable';
 
-const { Map, set } = immutable;
-
 export const map = Map({
   1: 'Liam',
   2: 'Noah',
@@ -11,4 +9,6 @@ export const map = Map({
   6: 'Lucas',
 });
 
-export const map2 = map.withMutations(set(2, 'Benjamin').set(4, 'Oliver'));
+export const map2 = map.withMutations((item) => {
+	item.set(2, 'Benjamin').set(4, 'Oliver');
+});
